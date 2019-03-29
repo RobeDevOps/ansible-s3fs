@@ -1,0 +1,6 @@
+---
+- name: Allow other
+  template:
+    src: fuse.conf.j2
+    dest: /etc/fuse.conf
+    mode: 0644

@@ -1,0 +1,8 @@
+---
+- name: Load user based on OS
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yml"
+    - default.yml
+
+- debug: msg="{{fs_user}} - {{ansible_distribution}}"

@@ -1,0 +1,34 @@
+---
+- include: load_user.yml
+  tags:
+    - user
+
+- include: yum_installation.yml
+  when: ansible_distribution in ['CentOS', 'RedHat', 'Amazon']
+
+- include: debian_installation.yml
+  when: ansible_distribution in ['Debian']
+
+- include: ubuntu_installation.yml
+  when: ansible_distribution in ['Ubuntu']
+
+- include: create_access_file.yml
+
+- name: Getting fuse source code
+  git:
+    repo: "{{git_repo}}"
+    dest: "{{git_checkout_path}}"
+    force: yes
+
+- name: Check is configure is there
+  stat:
+    path: "{{git_checkout_path}}/configure"
+  register: configure
+  when: not ansible_check_mode
+
+- include: fuse_installation.yml
+  when: not ansible_check_mode
+
+- include: user_allow_other.yml
+
+- include: create_mount_directory.yml

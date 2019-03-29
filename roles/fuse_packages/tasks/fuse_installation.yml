@@ -1,0 +1,27 @@
+---
+- name: Install fuse
+  shell: ./autogen.sh
+  args:
+    chdir: "{{git_checkout_path}}"
+  register: autogen
+  when:
+    - configure is defined 
+    - not configure.stat.exists
+
+- name: Configure fuse
+  shell: ./configure --prefix=/usr --with-openssl
+  args:
+    chdir: "{{git_checkout_path}}"
+  when: autogen is changed
+
+- name: Run make
+  shell: make
+  args:
+    chdir: "{{git_checkout_path}}"
+  when: autogen is changed
+
+- name: Run make install
+  shell: make install
+  args:
+    chdir: "{{git_checkout_path}}"
+  when: autogen is changed

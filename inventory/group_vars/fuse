@@ -1,0 +1,7 @@
+---
+# repository settings
+git_repo: https://github.com/s3fs-fuse/s3fs-fuse.git
+git_checkout_path: /srv/s3fs
+
+mount_path: /s3fs-data
+bucket_name: s3fs-bucket-delphix

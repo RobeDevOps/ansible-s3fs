@@ -1,0 +1,14 @@
+# In CentOS or Red Hat or Amazon Linux Instance
+- name: Install packages
+  yum:
+    name:
+      - automake
+      - fuse
+      - fuse-devel
+      - gcc-c++
+      - git
+      - libcurl-devel
+      - libxml2-devel
+      - make
+      - openssl-devel
+    state: present

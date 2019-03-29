@@ -1,0 +1,16 @@
+# Ubuntu or Debian
+- name: Install packages
+  apt:
+    name:
+      - automake
+      - fuse
+      - libfuse-dev
+      - autotools-dev
+      - g++
+      - git
+      - libcurl4-gnutls-dev
+      - libxml2-dev
+      - libssl-dev
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600

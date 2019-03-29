@@ -1,0 +1,17 @@
+---
+- name: Create mount directory
+  file:
+    path: "{{mount_path}}"
+    state: directory
+    owner: "{{fs_user}}"
+
+#  bucket_name = the name of your S3 bucket that you have created on AWS S3,
+#  use_cache = to use a directory for its cache purpose
+#  allow_other = to allow other users to write to the mount-point
+#  uid = uid of the user/owner of the mountpoint (can also add “-o gid=1001” for group)
+#  mp_umask= to remove other users permission. 
+#  multireq_max= parameter to send request to s3 bucket 
+#  mount_path = mountpoint where the bucket will be mounted
+- name: Mount S3 bucket into directory
+  shell: >
+    s3fs {{bucket_name}} {{mount_path}} -o use_cache=/tmp -o allow_other -o uid=1000 -o mp_umask=002 -o multireq_max=5 -o nonempty

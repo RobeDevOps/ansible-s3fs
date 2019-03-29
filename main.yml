@@ -1,0 +1,5 @@
+---
+- hosts: fuse
+  become: yes
+  roles:
+    - fuse_packages
