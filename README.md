@@ -83,4 +83,4 @@ How to run this playbook
 ```bash
 ansible-playbook main.yml -i inventory/host.ini --extra-vars "aws_access_key=<your_access_key> aws_secret_key=<your_secrect_key>"
 ```
-**I strongly recommend to set the aws keys as a command line argument to avoid any security issue writing thess credentials on files.**
+**I strongly recommend to set the aws keys as a command line argument to avoid any security issue writing these credentials on files.**
