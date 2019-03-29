@@ -9,16 +9,16 @@ Amazon users based on OS
 --------------
 Below is the of Amazon OS and associated ssh username
 
-| OS                 | AMI ssh username |
-|--------------------|------------------|
-|Amazon Linux        | ec2-user         |	
-|Ubuntu 	         | ubuntu 	        |
-|Debian 	         | admin            |
-|RHEL 6.4 and later  | ec2-user         | 	
-|RHEL 6.3 and earlier| root             |	
-|Fedora              | fedora           |
-|Centos              | centos           |
-|SUSE                |ec2-user          |
+| OS                 | AMI ssh username | Tested |
+|--------------------|------------------|--------|
+|Amazon Linux        | ec2-user         | **X**  |
+|Ubuntu 	         | ubuntu 	        | **X**  |
+|Debian 	         | admin            | **X**  |
+|RHEL 6.4 and later  | ec2-user         |        |
+|RHEL 6.3 and earlier| root             |        |
+|Fedora              | fedora           |        |
+|Centos              | centos           | **X**  |
+|SUSE                |ec2-user          |        |
 
 
 S3fs project structure
